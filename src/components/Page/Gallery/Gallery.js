@@ -1,9 +1,8 @@
 import React from 'react'
 
 import GalleryItem from './GalleryItem/GalleryItem'
-import menuItems from '../../../menu-data.js'
 
-const Gallery = () => {
+const Gallery = ({ menuItems }) => {
   let renderItems = menuItems.map((item, i) => (
     <GalleryItem
       key={i}

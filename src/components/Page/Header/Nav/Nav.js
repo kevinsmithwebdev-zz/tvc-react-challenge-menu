@@ -2,13 +2,6 @@ import React from 'react'
 
 class Nav extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {
-      signedIn: true
-    }
-  }
-
   render() {
     return (
       <ul className='nav-ul'>
@@ -18,23 +11,16 @@ class Nav extends React.Component {
         <li><a href='#our-story'><button className='button'>Our Story</button></a></li>
         <div className='sign-in'>
           {
-            this.state.signedIn
-              ? <li><button className='button' onClick={handleEditMenuClick}>Edit Menu</button></li>
+            this.props.isLoggedIn
+              ? <li><button className='button' onClick={this.props.handleChangeIsEdit.bind(this)}>Edit Menu</button></li>
               : ""
           }
-          <li><button className='button' onClick={handleSignInClick.bind(this)}>{this.state.signedIn?'Sign-in':'Sign-out'}</button></li>
+          <li><button className='button' onClick={this.props.handleChangeIsLoggedIn.bind(this)}>{this.props.isLoggedIn?'Sign-out':'Sign-in'}</button></li>
         </div>
       </ul>
     )
   }
 }
 
-function handleEditMenuClick() {
-  console.log('edit menu mode')
-}
-
-function handleSignInClick() {
-  this.setState({ signedIn: !this.state.signedIn })
-}
 
 export default Nav

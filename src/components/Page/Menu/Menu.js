@@ -1,9 +1,8 @@
 import React from 'react'
 
 import MenuItem from './MenuItem/MenuItem'
-import menuItems from '../../../menu-data.js'
 
-const Menu = () => {
+const Menu = ({ menuItems }) => {
   let renderItems = menuItems.map((item, i) => (
     <MenuItem
       key={i}
